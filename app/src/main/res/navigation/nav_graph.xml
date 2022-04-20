@@ -10,9 +10,7 @@
         android:name="com.hfad.cafeastrology.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
-        <action
-            android:id="@+id/action_registerFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+        <action android:id="@+id/action_registerFragment_to_loginFragment" app:destination="@id/loginFragment"/>
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -22,6 +20,7 @@
         <action
             android:id="@+id/action_loginFragment_to_categoryFragment"
             app:destination="@id/categoryFragment" />
+        <action android:id="@+id/action_loginFragment_to_registerFragment2" app:destination="@id/registerFragment"/>
     </fragment>
     <fragment
         android:id="@+id/categoryFragment"
@@ -51,10 +50,11 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_registerFragment"
-            app:destination="@id/registerFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action android:id="@+id/action_mainFragment_to_instructionsFragment"
+                app:destination="@id/instructionsFragment"/>
     </fragment>
+    <fragment android:id="@+id/instructionsFragment" android:name="com.hfad.cafeastrology.instructionsFragment"
+              android:label="fragment_instructions" tools:layout="@layout/fragment_instructions"/>
 </navigation>
