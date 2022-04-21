@@ -12,12 +12,14 @@
         <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.14907407407407408" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/fragment_category.xml" value="0.1359375" />
+        <entry key="app/src/main/res/layout/fragment_daily_horoscope.xml" value="0.12037037037037036" />
         <entry key="app/src/main/res/layout/fragment_date_picker.xml" value="0.20572916666666666" />
         <entry key="app/src/main/res/layout/fragment_dialog.xml" value="0.2462962962962963" />
         <entry key="app/src/main/res/layout/fragment_dialog_fragment.xml" value="0.2462962962962963" />
         <entry key="app/src/main/res/layout/fragment_instructions.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.17447618934812317" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_match_making.xml" value="0.12037037037037036" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.17448124157219097" />
         <entry key="app/src/main/res/layout/fragment_select_date.xml" value="0.20277777777777778" />
         <entry key="app/src/main/res/layout/header_layout.xml" value="0.19479166666666667" />
