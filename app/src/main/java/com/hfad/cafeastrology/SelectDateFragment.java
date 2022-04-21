@@ -27,7 +27,7 @@ public class SelectDateFragment extends DialogFragment implements DatePickerDial
     }
     public void populateSetDate(int year, int month, int day) {
 
-        TextView text = (TextView) getActivity().findViewById(R.id.birthdayInput);
-        text.setText(month+"/"+day+"/"+year);
+//        TextView text = (TextView) getActivity().findViewById(R.id.birthdayInput);
+//        text.setText(month+"/"+day+"/"+year);
     }
 }

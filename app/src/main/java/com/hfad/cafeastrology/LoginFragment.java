@@ -4,6 +4,13 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +20,11 @@ import androidx.navigation.Navigation;
 
 public class LoginFragment extends Fragment implements View.OnClickListener {
     NavController navController = null;
+
+    EditText username, password;
+    Button btnlogin;
+    DatabaseHelper DB;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,8 +39,35 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         navController = Navigation.findNavController(view);
         view.findViewById(R.id.registerHere).setOnClickListener(this);
+        view.findViewById(R.id.loginSubmit).setOnClickListener(this);
 
+        username = (EditText) getActivity().findViewById(R.id.usernameInput);
+        password = (EditText) getActivity().findViewById(R.id.passwordInput);
+        btnlogin = (Button) getActivity().findViewById(R.id.loginSubmit);
+        DB = new DatabaseHelper(getActivity());
+        btnlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String user = username.getText().toString();
+                String pass = password.getText().toString();
+
+                if(user.equals("")||pass.equals(""))
+                    Toast.makeText(getActivity(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
+                else{
+                    Boolean checkuserpass = DB.checkusernamepassword(user, pass);
+                    if(checkuserpass==true){
+                        Toast.makeText(getActivity(), "Sign in successfull", Toast.LENGTH_SHORT).show();
+                        navController.navigate(R.id.action_loginFragment_to_categoryFragment);
+                    }else{
+                        Toast.makeText(getActivity(), "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
     }
+
+
 //
     @Override
     public void onClick(View view) {
