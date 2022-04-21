@@ -5,7 +5,60 @@
                 android:layout_height="match_parent"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 tools:context=".LoginFragment"
-                android:background="@drawable/loginback">
+                android:background="@drawable/loginback2">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textSize="40dp"
+            android:paddingVertical="20dp"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"
+            android:id="@+id/title2" />
+
+    <ImageView
+            android:id="@+id/chart"
+            android:src="@drawable/chart6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="100dp"
+            android:layout_below="@+id/title2"
+            tools:ignore="MissingConstraints"/>
+
+
+    <EditText
+            android:id="@+id/usernameInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/white"
+            android:text="Username"
+            android:ems="10"
+            android:layout_below="@+id/chart"/>
+
+    <EditText
+            android:id="@+id/passwordInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Password"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/white"
+            android:ems="10"
+            android:layout_below="@+id/usernameInput"/>
+    <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Submit"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            android:ems="10"
+            android:layout_below="@+id/passwordInput"/>
 
     <TextView
             android:id="@+id/registerHere"
@@ -17,5 +70,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"/>
+
+    <!--    android:inputType="textPassword"-->
 
 </RelativeLayout>

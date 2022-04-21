@@ -1,25 +1,107 @@
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".RegisterFragment">
-
-        <RelativeLayout
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-                <TextView
-                        android:id="@+id/swipeLeft"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="swipe_right_for_login"
-                        android:textSize="15sp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="20dp"/>
+                android:layout_height="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                tools:context=".RegisterFragment"
+                android:background="@drawable/registerback">
 
-        </RelativeLayout>
 
-</LinearLayout>
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register"
+                android:textSize="40dp"
+                android:paddingVertical="20dp"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                android:id="@+id/title2" />
+
+        <ImageView
+                android:id="@+id/chart"
+                android:src="@drawable/chart4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="100dp"
+                android:layout_below="@+id/title2"
+                tools:ignore="MissingConstraints"/>
+
+        <EditText
+                android:id="@+id/nameInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:text="Name"
+                android:ems="10"
+                android:layout_below="@+id/chart"/>
+
+        <EditText
+                android:id="@+id/newUsernameInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:text="Username"
+                android:ems="10"
+                android:layout_below="@+id/nameInput"/>
+
+        <TextView
+                android:id="@+id/birthdayInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:text="Birthday"
+                android:textSize="18dp"
+                android:ems="10"
+                android:layout_below="@+id/newUsernameInput"/>
+
+        <EditText
+                android:id="@+id/newPasswordInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Password"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:layout_below="@+id/birthdayInput"/>
+
+        <Button
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Submit"
+                android:textColor="@color/black"
+                android:backgroundTint="@color/white"
+                android:ems="10"
+                android:layout_below="@+id/newPasswordInput"/>
+
+        <TextView
+                android:id="@+id/temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Temporary Category Fragment"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"/>
+        <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="open date picker"
+                android:layout_below="@+id/submit"/>
+</RelativeLayout>

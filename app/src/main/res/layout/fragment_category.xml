@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CategoryFragment">
+    tools:context=".CategoryFragment"
+    android:background="@drawable/categoryback">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+            android:id="@+id/CategoryTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pick a Category"
+            android:textSize="40dp"
+            android:paddingVertical="20dp"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"/>
 
-</FrameLayout>
+    <Button
+        android:id="@+id/DailyHoroscopeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="My Daily Horoscope"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"
+        android:ems="15"
+        android:layout_below="@+id/CategoryTitle"/>
+
+    <Button
+            android:id="@+id/MatchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Match Making"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            android:ems="15"
+            android:layout_below="@+id/DailyHoroscopeBtn"/>
+
+</RelativeLayout>
