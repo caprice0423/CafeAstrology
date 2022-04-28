@@ -24,7 +24,7 @@ import java.util.Calendar;
 public class RegisterFragment extends Fragment implements View.OnClickListener, DatePickerDialog.OnDateSetListener {
     NavController navController = null;
 
-    EditText username, password;
+    EditText username, password, fullynamed;
     TextView date;
     Button signup, signin;
     DatabaseHelper DB;
@@ -53,8 +53,11 @@ public class RegisterFragment extends Fragment implements View.OnClickListener, 
 
         view.findViewById(R.id.newUsernameInput).setOnClickListener(this);
 
+        view.findViewById(R.id.usersName).setOnClickListener(this);
+
         username = (EditText) getActivity().findViewById(R.id.newUsernameInput);
         password = (EditText) getActivity().findViewById(R.id.newPasswordInput);
+        fullynamed = (EditText) getActivity().findViewById(R.id.usersName);
 
         date = (TextView) getActivity().findViewById(R.id.birthdayInput);
 
@@ -69,6 +72,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener, 
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
                 String birthdate = date.getText().toString();
+                String fullName = fullynamed.getText().toString();
                 String name;
 
                 if(user.equals("")||pass.equals(""))
@@ -149,7 +153,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener, 
                                     sign = "Capricorn";
                             }
 
-                            Boolean insert = DB.insertData(user, birthdate, pass, sign); //, birthdate);
+                            Boolean insert = DB.insertData(fullName, user, pass, birthdate, sign); //, birthdate);
 
                             if(insert==true){
                                 navController.navigate(R.id.action_registerFragment_to_loginFragment);

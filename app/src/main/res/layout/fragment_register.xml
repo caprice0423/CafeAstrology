@@ -38,6 +38,16 @@
 <!--                android:text="Name"-->
 <!--                android:ems="10"-->
 <!--                android:layout_below="@+id/chart"/>-->
+        <EditText
+                android:id="@+id/usersName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:text="Full Name"
+                android:ems="10"/>
 
         <EditText
                 android:id="@+id/newUsernameInput"
@@ -48,7 +58,8 @@
                 android:textColor="@color/white"
                 android:backgroundTint="@color/white"
                 android:text="Username"
-                android:ems="10"/>
+                android:ems="10"
+                android:layout_below="@+id/usersName"/>
 
         <TextView
                 android:id="@+id/birthdayInput"

@@ -21,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
 
-        MyDB.execSQL("create Table users(username TEXT primary key, birthdate TEXT NOT NULL, password TEXT NOT NULL, zodiac TEXT NOT NULL)");
+        MyDB.execSQL("create Table users(fullname TEXT NOT NULL, username TEXT primary key, password TEXT NOT NULL,  birthdate TEXT NOT NULL, zodiac TEXT NOT NULL)");
     }
 
     @Override
@@ -30,9 +30,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(MyDB);
     }
 
-    public Boolean insertData(String username, String birthdate, String password, String zodiac){ //, String birthday){
+    public Boolean insertData(String fullname, String username, String password, String birthdate, String zodiac){ //, String birthday){
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put("fullname", fullname);
         contentValues.put("username", username);
         contentValues.put("password", password);
         contentValues.put("birthdate", birthdate);
