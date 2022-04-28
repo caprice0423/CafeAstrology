@@ -10,7 +10,7 @@
             android:id="@+id/CategoryTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pick a Category"
+            android:text="Readings"
             android:textSize="40dp"
             android:paddingVertical="20dp"
             android:textColor="@color/white"

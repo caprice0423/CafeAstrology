@@ -50,18 +50,17 @@
                 android:text="Username"
                 android:ems="10"/>
 
-<!--        <TextView-->
-<!--                android:id="@+id/birthdayInput"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_centerHorizontal="true"-->
-<!--                android:layout_centerVertical="true"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:backgroundTint="@color/white"-->
-<!--                android:text="Birthday"-->
-<!--                android:textSize="18dp"-->
-<!--                android:ems="10"-->
-<!--                android:layout_below="@+id/newUsernameInput"/>-->
+        <TextView
+                android:id="@+id/birthdayInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/white"
+                android:text="Birthday"
+                android:textSize="17dp"
+                android:ems="10"
+                android:layout_below="@+id/newUsernameInput"
+                android:layout_centerInParent="true"/>
 
         <EditText
                 android:id="@+id/newPasswordInput"
@@ -72,7 +71,7 @@
                 android:textColor="@color/white"
                 android:backgroundTint="@color/white"
                 android:ems="10"
-                android:layout_below="@+id/newUsernameInput"/>
+                android:layout_below="@+id/birthdayInput"/>
 
         <Button
                 android:id="@+id/registerSubmit"

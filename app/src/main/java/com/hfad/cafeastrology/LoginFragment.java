@@ -1,5 +1,7 @@
 package com.hfad.cafeastrology;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,13 +26,15 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     EditText username, password;
     Button btnlogin;
     DatabaseHelper DB;
-
+    String currUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login, container, false);
+
     }
 
     @Override
@@ -45,6 +49,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         password = (EditText) getActivity().findViewById(R.id.passwordInput);
         btnlogin = (Button) getActivity().findViewById(R.id.loginSubmit);
         DB = new DatabaseHelper(getActivity());
+
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,9 +60,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 if(user.equals("")||pass.equals(""))
                     Toast.makeText(getActivity(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
-                    Boolean checkuserpass = DB.checkusernamepassword(user, pass);
-                    if(checkuserpass==true){
-                        Toast.makeText(getActivity(), "Sign in successfull", Toast.LENGTH_SHORT).show();
+                    Boolean checkUserPass = DB.checkUsernamePassword(user, pass);
+
+                    if(checkUserPass==true){
+                        getActivity().getIntent().putExtra("key", user);
+                        Toast.makeText(getActivity(),  user + " has signed in successfully", Toast.LENGTH_SHORT).show();
                         navController.navigate(R.id.action_loginFragment_to_categoryFragment);
                     }else{
                         Toast.makeText(getActivity(), "Invalid Credentials", Toast.LENGTH_SHORT).show();
@@ -67,8 +74,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         });
     }
 
-
-//
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -77,4 +82,17 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 break;
         }
     }
+
+    // Getter
+    public String getCurrentUser() {
+        return currUser;
+    }
+
+    // Setter
+    public void setCurrentUser(String user) {
+        this.currUser = user;
+    }
+
+
+
 }

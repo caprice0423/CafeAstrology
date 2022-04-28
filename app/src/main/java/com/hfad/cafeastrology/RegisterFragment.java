@@ -2,8 +2,11 @@ package com.hfad.cafeastrology;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.widget.*;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
@@ -21,11 +24,12 @@ import java.util.Calendar;
 public class RegisterFragment extends Fragment implements View.OnClickListener, DatePickerDialog.OnDateSetListener {
     NavController navController = null;
 
-    EditText username, password, repassword;
+    EditText username, password;
     TextView date;
     Button signup, signin;
     DatabaseHelper DB;
-
+    String aries = "03/21/year",
+            taurus, gemini, cancer, leo, virgo, libra, scorpio, sagittarius, capricorn, aquarius, pisces;
 
 
 
@@ -42,30 +46,111 @@ public class RegisterFragment extends Fragment implements View.OnClickListener, 
 
         navController = Navigation.findNavController(view);
 //        view.findViewById(R.id.temp).setOnClickListener(this);
-//        view.findViewById(R.id.button).setOnClickListener(this);
+
+        view.findViewById(R.id.birthdayInput).setOnClickListener(this);
+
         view.findViewById(R.id.registerSubmit).setOnClickListener(this);
+
+        view.findViewById(R.id.newUsernameInput).setOnClickListener(this);
 
         username = (EditText) getActivity().findViewById(R.id.newUsernameInput);
         password = (EditText) getActivity().findViewById(R.id.newPasswordInput);
-//        date = (TextView) getActivity().findViewById(R.id.birthdayInput);
+
+        date = (TextView) getActivity().findViewById(R.id.birthdayInput);
+
         signup = (Button) getActivity().findViewById(R.id.registerSubmit);
         signin = (Button) getActivity().findViewById(R.id.loginSubmit);
         DB = new DatabaseHelper(getActivity());
+
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
-//                String birthdate = date.getText().toString();
+                String birthdate = date.getText().toString();
+                String name;
 
                 if(user.equals("")||pass.equals(""))
                     Toast.makeText(getActivity(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
                     if(pass.equals(pass)){
-                        Boolean checkuser = DB.checkusername(user);
-                        if(checkuser==false){
-                            Boolean insert = DB.insertData(user, pass); //, birthdate);
+                        Boolean checkuser = DB.checkUsername(user);
+
+                        if(checkuser==false) {
+
+                            String myString = (String) date.getText();
+                            String[] item = myString.split("/");
+
+                            int day = Integer.parseInt(item[1]);
+                            String month = item[0];
+
+                            String sign = "N/A";
+
+                            if (month.equals("1")) {
+                                if (day < 20)
+                                    sign = "Capricorn";
+                                else
+                                    sign = "Aquarius";
+                            } else if (month.equals("2")) {
+                                if (day < 19)
+                                    sign = "Aquarius";
+                                else
+                                    sign = "Pisces";
+                            } else if (month.equals("3")) {
+                                if (day < 21)
+                                    sign = "Pisces";
+                                else
+                                    sign = "Aries";
+                            } else if (month.equals("4")) {
+                                if (day < 20)
+                                    sign = "Aries";
+                                else
+                                    sign = "Taurus";
+                            } else if (month.equals("5")) {
+                                if (day < 21)
+                                    sign = "Taurus";
+                                else
+                                    sign = "Gemini";
+                            } else if (month.equals("6")) {
+                                if (day < 21)
+                                    sign = "Gemini";
+                                else
+                                    sign = "Cancer";
+                            } else if (month.equals("7")) {
+                                if (day < 23)
+                                    sign = "Cancer";
+                                else
+                                    sign = "Leo";
+                            } else if (month.equals("8")) {
+                                if (day < 23)
+                                    sign = "Leo";
+                                else
+                                    sign = "Virgo";
+                            } else if (month.equals("9")) {
+                                if (day < 23)
+                                    sign = "Virgo";
+                                else
+                                    sign = "Libra";
+                            } else if (month.equals("10")) {
+                                if (day < 23)
+                                    sign = "Libra";
+                                else
+                                    sign = "Scorpio";
+                            } else if (month.equals("11")) {
+                                if (day < 22)
+                                    sign = "Scorpio";
+                                else
+                                    sign = "Sagittarius";
+                            } else if (month.equals("12")) {
+                                if (day < 22)
+                                    sign = "Sagittarius";
+                                else
+                                    sign = "Capricorn";
+                            }
+
+                            Boolean insert = DB.insertData(user, birthdate, pass, sign); //, birthdate);
+
                             if(insert==true){
                                 navController.navigate(R.id.action_registerFragment_to_loginFragment);
                             }else{
@@ -91,16 +176,15 @@ public class RegisterFragment extends Fragment implements View.OnClickListener, 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-//            case R.id.temp:
-//                navController.navigate(R.id.action_registerFragment_to_loginFragment);
-//                break;
             case R.id.registerSubmit:
                 navController.navigate(R.id.action_registerFragment_to_loginFragment);
                 break;
-//            case R.id.button:
-//                DialogFragment newFragment = new SelectDateFragment();
-//                newFragment.show(getFragmentManager(), "DatePicker");
-//                break;
+
+            case R.id.birthdayInput:
+                DialogFragment newFragment = new SelectDateFragment();
+                newFragment.show(getFragmentManager(), "DatePicker");
+                break;
+
         }
     }
 
@@ -110,9 +194,12 @@ public class RegisterFragment extends Fragment implements View.OnClickListener, 
         c.set(Calendar.YEAR, year);
         c.set(Calendar.MONTH, month);
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
         String currentDateString = DateFormat.getDateInstance(DateFormat.FULL).format(c.getTime());
 
-//        TextView textView = (TextView) view.findViewById(R.id.birthdayInput);
-//        textView.setText(currentDateString);
+
+       // TextView textView = (TextView) view.findViewById(R.id.birthdayInput);
+        date.setText(currentDateString);
     }
+
 }

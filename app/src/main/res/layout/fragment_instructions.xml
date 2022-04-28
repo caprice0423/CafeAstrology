@@ -3,12 +3,15 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".instructionsFragment">
+             tools:context=".instructionsFragment"
+            android:background="@drawable/instructionsback">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="instructions fragment"/>
+            android:text="This is the instructions Fragmnent"
+            android:textSize="30dp"
+            android:textColor="@color/white"/>
 
 </FrameLayout>
