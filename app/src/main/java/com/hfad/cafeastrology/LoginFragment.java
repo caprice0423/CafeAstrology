@@ -2,8 +2,10 @@ package com.hfad.cafeastrology;
 
 import android.app.Activity;
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 
+import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,9 +26,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     NavController navController = null;
 
     EditText username, password;
+    TextView date;
     Button btnlogin;
     DatabaseHelper DB;
     String currUser;
+    String birth = " ", name = " ", zodiacs = " ";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,7 +52,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         username = (EditText) getActivity().findViewById(R.id.usernameInput);
         password = (EditText) getActivity().findViewById(R.id.passwordInput);
         btnlogin = (Button) getActivity().findViewById(R.id.loginSubmit);
+
+        date = (TextView) getActivity().findViewById(R.id.birthdayInput);
+
         DB = new DatabaseHelper(getActivity());
+
+
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +66,47 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
 
+                DB.getReadableDatabase();
+                Cursor c = DB.getReadableDatabase().rawQuery("SELECT birthdate FROM Users WHERE username = ?", new String[]{user});
+
+                if (c.moveToFirst()){
+                    do {
+                        // Passing values
+                        birth = c.getString(0);
+//                        System.out.println(birth);
+                        // Do something Here with values
+                    } while(c.moveToNext());
+                }
+
+
+                DB.getReadableDatabase();
+                Cursor c2 = DB.getReadableDatabase().rawQuery("SELECT fullname FROM Users WHERE username = ?", new String[]{user});
+
+                if (c2.moveToFirst()){
+                    do {
+                        // Passing values
+                        name = c2.getString(0);
+//                        System.out.println(birth);
+                        // Do something Here with values
+                    } while(c2.moveToNext());
+                }
+                c2.close();
+
+                DB.getReadableDatabase();
+                Cursor c3 = DB.getReadableDatabase().rawQuery("SELECT zodiac FROM Users WHERE username = ?", new String[]{user});
+
+                if (c3.moveToFirst()){
+                    do {
+                        // Passing values
+                        zodiacs = c3.getString(0);
+//                        System.out.println(birth);
+                        // Do something Here with values
+                    } while(c2.moveToNext());
+                }
+                c2.close();
+
+//                String birthdate = date.getText().toString();
+
                 if(user.equals("")||pass.equals(""))
                     Toast.makeText(getActivity(), "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else{
@@ -64,6 +114,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
                     if(checkUserPass==true){
                         getActivity().getIntent().putExtra("key", user);
+                        getActivity().getIntent().putExtra("birthday", birth);
+                        getActivity().getIntent().putExtra("fullname", name);
+                        getActivity().getIntent().putExtra("sign", zodiacs);
                         Toast.makeText(getActivity(),  user + " has signed in successfully", Toast.LENGTH_SHORT).show();
                         navController.navigate(R.id.action_loginFragment_to_categoryFragment);
                     }else{

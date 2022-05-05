@@ -1,15 +1,25 @@
 package com.hfad.cafeastrology;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -23,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavController navController;
     NavigationView navigationView;
     Toolbar toolbar;
+    Fragment fragment;
+    Boolean playing = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +54,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationUI.setupWithNavController(navigationView,navController);
         navigationView.setNavigationItemSelectedListener(this);
 
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
 
+        Drawable d = getResources().getDrawable(R.drawable.constellations);
+        actionBar.setBackgroundDrawable(d);
+        View main = findViewById(R.id.mainFragment);
+        PlayBackgroundSound(main);
 
     }
 
@@ -69,14 +87,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        android.app.Fragment f = getFragmentManager().findFragmentById(R.id.settingsFragment);
+//        BackgroundSoundService
+        View main = findViewById(R.id.mainFragment);
         int id = item.getItemId();
         switch (id) {
             case R.id.settings:
-
+                if(playing == true) {
+                    StopBackgroundSound(main);
+                } else {
+                    PlayBackgroundSound(main);
+                }
                 break;
+
             case R.id.help:
-
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("API used: https://rapidapi.com/zedjeep/api/devbrewer-horoscope. \n Developers: Caprice and Sadjell");
+                builder.setCancelable(true);
+                AlertDialog alert = builder.create();
+                alert.show();
                 break;
+
             case R.id.share:
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
@@ -95,19 +126,43 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+        Fragment fragment = null;
         if(id == R.id.nav_home){
+            fragment = new MainFragment();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.nav_host_fragment, fragment);
+            ft.commit();
 
         }
-        else if(id == R.id.nav_gallery){
+        else if(id == R.id.nav_information){
+            fragment = new instructionsFragment();
+            FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
+            ft1.replace(R.id.nav_host_fragment, fragment);
+            ft1.commit();
 
         }
-        else if(id == R.id.nav_slideshow){
+//        else if(id == R.id.nav_settings){
+//            fragment = new SettingsFragment();
+//            FragmentTransaction ft3 = getSupportFragmentManager().beginTransaction();
+//            ft3.replace(R.id.nav_host_fragment, fragment);
+//            ft3.commit();
+//
+//
+//        }
+//        else if(id == R.id.nav_share){
+//            Intent intent = new Intent(Intent.ACTION_SEND);
+//            intent.setType("text/plain");
+//            intent.putExtra(Intent.EXTRA_SUBJECT, "Check out our app!");
+//            intent.putExtra(Intent.EXTRA_TEXT, "Our app link here");
+//            startActivity(Intent.createChooser(intent, "Share via"));
+//
+//        }
 
-        }
-        else if(id == R.id.nav_share){
-
-        }
-        else if(id == R.id.nav_send){
+        else if(id == R.id.nav_sign_out){
+            fragment = new LoginFragment();
+            FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
+            ft2.replace(R.id.nav_host_fragment, fragment);
+            ft2.commit();
 
         }
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -115,4 +170,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
+    public void PlayBackgroundSound(View view) {
+        Intent intent = new Intent(MainActivity.this, BackgroundSoundService.class);
+        playing = true;
+        startService(intent);
+    }
+
+    public void StopBackgroundSound(View view) {
+        Intent intent = new Intent(MainActivity.this, BackgroundSoundService.class);
+        playing = false;
+        stopService(intent);
+    }
 }

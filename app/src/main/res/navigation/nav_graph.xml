@@ -43,7 +43,10 @@
         android:id="@+id/matchMakingFragment"
         android:name="com.hfad.cafeastrology.MatchMakingFragment"
         android:label="fragment_match_making"
-        tools:layout="@layout/fragment_match_making" />
+        tools:layout="@layout/fragment_match_making" >
+        <action android:id="@+id/action_matchMakingFragment_to_matchInfoFragment"
+                app:destination="@id/matchInfoFragment"/>
+    </fragment>
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.hfad.cafeastrology.MainFragment"
@@ -54,7 +57,14 @@
             app:destination="@id/loginFragment" />
         <action android:id="@+id/action_mainFragment_to_instructionsFragment"
                 app:destination="@id/instructionsFragment"/>
+        <action android:id="@+id/action_mainFragment_to_settingsFragment" app:destination="@id/settingsFragment"/>
     </fragment>
     <fragment android:id="@+id/instructionsFragment" android:name="com.hfad.cafeastrology.instructionsFragment"
               android:label="fragment_instructions" tools:layout="@layout/fragment_instructions"/>
+    <fragment android:id="@+id/matchInfoFragment" android:name="com.hfad.cafeastrology.MatchInfoFragment"
+              android:label="fragment_match_info" tools:layout="@layout/fragment_match_info"/>
+    <fragment android:id="@+id/settingsFragment" android:name="com.hfad.cafeastrology.SettingsFragment"
+              android:label="fragment_settings" tools:layout="@layout/fragment_settings">
+        <action android:id="@+id/action_settingsFragment_self" app:destination="@id/settingsFragment"/>
+    </fragment>
 </navigation>

@@ -1,5 +1,6 @@
 package com.hfad.cafeastrology;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -25,7 +26,8 @@ public class DailyHoroscopeFragment extends Fragment {
     EditText username;
     LoginFragment userr;
     DatabaseHelper DB;
-    String column1 = " ";
+    String column1 = " ", link;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,20 +51,19 @@ public class DailyHoroscopeFragment extends Fragment {
         String user = getActivity().getIntent().getExtras().getString("key");
 
 
-
         TextView textView1 = (TextView) view.findViewById(R.id.dailyWords);
 
         DB = new DatabaseHelper(getActivity());
         DB.getReadableDatabase();
         Cursor c = DB.getReadableDatabase().rawQuery("SELECT zodiac, username FROM Users WHERE username = ?", new String[]{user});
 
-        if (c.moveToFirst()){
+        if (c.moveToFirst()) {
             do {
                 // Passing values
                 column1 = c.getString(0);
                 System.out.println(column1);
                 // Do something Here with values
-            } while(c.moveToNext());
+            } while (c.moveToNext());
         }
         c.close();
 
@@ -71,9 +72,10 @@ public class DailyHoroscopeFragment extends Fragment {
 
         Request request = new Request.Builder()
                 .url("https://devbrewer-horoscope.p.rapidapi.com/today/long/" + column1)
+//                .url(link)
                 .get()
                 .addHeader("X-RapidAPI-Host", "devbrewer-horoscope.p.rapidapi.com")
-                .addHeader("X-RapidAPI-Key", "85f1fcaac5mshc7489665becae38p113b5djsn7ed9d609fc7a")
+                .addHeader("X-RapidAPI-Key", "50a31e52e7msh2d536d59c13a5c1p1414b9jsn14b3f1f13394")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -86,16 +88,19 @@ public class DailyHoroscopeFragment extends Fragment {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+
                 if (response.isSuccessful()) {
                     final String myResponse = response.body().string();
 
                     getActivity().runOnUiThread(new Runnable() {
+
                         @Override
                         public void run() {
                             try {
 
                                 JSONObject json = new JSONObject(myResponse);
-                                textView1.setText(column1 + ": " + json.getJSONObject(column1).getString("Daily"));
+                                textView1.setText(json.getJSONObject(column1).getString("Daily"));
+//                                textView1.setText(myResponse);
 
                             } catch (JSONException e) {
                                 e.printStackTrace();

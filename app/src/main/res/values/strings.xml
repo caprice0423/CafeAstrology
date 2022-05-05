@@ -10,7 +10,6 @@
     <string name="menu_send">Send</string>
 
     <string-array name="zodiac1">
-        <item>zodiac1</item>
         <item>Aries</item>
         <item>Taurus</item>
         <item>Gemini</item>
@@ -23,23 +22,6 @@
         <item>Capricorn</item>
         <item>Aquarius</item>
         <item>Pisces</item>
-
     </string-array>
 
-    <string-array name="zodiac2">
-        <item>zodiac2</item>
-        <item>Aries</item>
-        <item>Taurus</item>
-        <item>Gemini</item>
-        <item>Cancer</item>
-        <item>Leo</item>
-        <item>Virgo</item>
-        <item>Libra</item>
-        <item>Scorpio</item>
-        <item>Sagittarius</item>
-        <item>Capricorn</item>
-        <item>Aquarius</item>
-        <item>Pisces</item>
-
-    </string-array>
 </resources>

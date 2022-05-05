@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MatchMakingFragment"
-    android:background="@drawable/matchback">
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MatchMakingFragment"
+        android:background="@drawable/matchback2">
 
     <TextView
             android:id="@+id/MatchTitle"
@@ -16,50 +18,61 @@
             android:textColor="@color/white"
             android:gravity="center_horizontal"/>
 
+    <Spinner
+            android:id="@+id/spinner1"
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:paddingVertical="7dp"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:background="@color/white"
+            android:entries="@array/zodiac1"
+            android:layout_below="@+id/MatchTitle"/>
 
     <TextView
-            android:id="@+id/instrctText"
-            android:layout_width="wrap_content"
+            android:id="@+id/info"
+            android:layout_width="49dp"
             android:layout_height="wrap_content"
-            android:text="Instructions"
+            android:text="Info"
             android:textSize="20dp"
             android:ems="7"
             android:textColor="@color/white"
             android:gravity="center_horizontal"
-            android:layout_toLeftOf="@+id/spinner1"
-            android:layout_below="@+id/MatchTitle"/>
-
-    <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-
-            android:ems="15"
-            android:textSize="15sp"
-            android:background="#FFB8D8"
-            android:entries="@array/zodiac1"
-            android:layout_below="@+id/MatchTitle"/>
-
-    <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:entries="@array/zodiac2"
-            android:ems="15"
-            android:background="#FDA4BA"
             android:layout_toRightOf="@+id/spinner1"
-            android:layout_below="@+id/MatchTitle"/>
+            android:layout_below="@+id/MatchTitle"
+            android:layout_marginTop="0dp"/>
+
+    <TextView
+            android:id="@+id/who"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="You and Aries"
+            android:textSize="30dp"
+            android:paddingVertical="20dp"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/spinner1"/>
 
     <TextView
             android:id="@+id/matchResults"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="This is the Matchmaking Fragment"
-            android:textSize="13dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Loading Results"
+            android:textSize="16dp"
+            android:gravity="center_horizontal"
+            android:paddingVertical="20dp"
             android:textColor="@color/white"
-            android:layout_below="@+id/spinner2"/>
+            android:layout_below="@+id/who"/>
+
+    <ImageView
+            android:src="@android:drawable/ic_menu_info_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/InfoImg"
+            android:layout_toRightOf="@+id/info"
+            android:layout_below="@+id/MatchTitle"/>
 
 
 </RelativeLayout>

@@ -10,7 +10,7 @@
         android:id="@+id/dailyWords"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="This is the Horoscope Fragment"
+        android:text="Loading Your Horoscope..."
         android:textSize="30dp"
         android:textColor="@color/white"/>
 
