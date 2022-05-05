@@ -33,9 +33,11 @@ import java.io.IOException;
 public class MatchMakingFragment extends Fragment implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     String aries,taurus,gemini,cancer,leo,virgo,libra,scorpio,sagittarius,capricorn,aquarius,pisces;
-     String txt = " ", link = " ";
+     String txt = " ", link = "https://devbrewer-horoscope.p.rapidapi.com/match/" + "Aries" + "/" + "Aries";
     NavController navController = null;
     Boolean cool = false;
+    private static int a;
+    private static int b;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,31 +80,20 @@ public class MatchMakingFragment extends Fragment implements AdapterView.OnItemS
 
         String zodiac = getActivity().getIntent().getExtras().getString("sign");
 
+        txt  = spinner.getSelectedItem().toString();
 
 
-
-
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                SharedPreferences sharedPreferences = getActivity().getSharedPreferences("cool", Context.MODE_PRIVATE);
-//
-//                sharedPreferences.edit().putString("url_selected", spinner.getSelectedItem().toString()).apply();
+//            if (txt.equals("Taurus")) {
+//                link = "https://devbrewer-horoscope.p.rapidapi.com/match/" + zodiac + "/" + "Taurus";
 //            }
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent){}
-//
-//        });
-
-//        String baseurl = sharedPreferences.getString("url_selected", "");
-//        System.out.println(baseurl);
 
 
-        //API connection
+            //API connection
             OkHttpClient client = new OkHttpClient();
 
+
             Request request = new Request.Builder()
-                    .url("https://devbrewer-horoscope.p.rapidapi.com/match/" + zodiac + "/" +  "gemini")
+                    .url(link)
                     .get()
                     .addHeader("X-RapidAPI-Host", "devbrewer-horoscope.p.rapidapi.com")
                     .addHeader("X-RapidAPI-Key", "85f1fcaac5mshc7489665becae38p113b5djsn7ed9d609fc7a")
@@ -110,7 +101,6 @@ public class MatchMakingFragment extends Fragment implements AdapterView.OnItemS
 
 
             client.newCall(request).enqueue(new Callback() {
-
                 //Parsing of the JSON file
                 @Override
                 public void onFailure(Call call, IOException e) {
@@ -132,9 +122,9 @@ public class MatchMakingFragment extends Fragment implements AdapterView.OnItemS
                                     String[] item = myString.split(":");
                                     String[] item2 = item[3].split("20");
 
-
-
                                     textView1.setText(item2[0] + '"');
+                                    String boi = getActivity().getIntent().getExtras().getString("yay");
+                                    System.out.println(boi);
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -152,9 +142,13 @@ public class MatchMakingFragment extends Fragment implements AdapterView.OnItemS
         String text1 = adapterView.getItemAtPosition(i).toString();
         Toast.makeText(adapterView.getContext(), text1, Toast.LENGTH_SHORT).show();
 
+        getActivity().getIntent().putExtra("yay", text1);
 
-//        getActivity().getIntent().putExtra("help", text1);
 
+
+//        if(text1.equals("Taurus")){
+//            getActivity().recreate();
+//            System.out.println("selected");
 
     }
 
@@ -168,7 +162,9 @@ public class MatchMakingFragment extends Fragment implements AdapterView.OnItemS
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.InfoImg:
-                navController.navigate(R.id.action_matchMakingFragment_to_matchInfoFragment);
+//                navController.navigate(R.id.action_matchMakingFragment_to_matchInfoFragment);
+//                txt = "http";
+
                 break;
         }
     }

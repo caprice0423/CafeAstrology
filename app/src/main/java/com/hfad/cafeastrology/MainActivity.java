@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -62,6 +63,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         View main = findViewById(R.id.mainFragment);
         PlayBackgroundSound(main);
 
+//        int id = (int)getIntent().getIntExtra("category_id", 0);
+//        MatchMakingFragment frag = (MatchMakingFragment) getSupportFragmentManager().findFragmentById(R.id.frag_detail);
+//        frag.setWorkId(id);
+
     }
 
     @Override
@@ -87,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        android.app.Fragment f = getFragmentManager().findFragmentById(R.id.settingsFragment);
+
 //        BackgroundSoundService
         View main = findViewById(R.id.mainFragment);
         int id = item.getItemId();
@@ -95,8 +100,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.settings:
                 if(playing == true) {
                     StopBackgroundSound(main);
+                    Toast.makeText(this, "Music is Off", Toast.LENGTH_SHORT).show();
                 } else {
                     PlayBackgroundSound(main);
+                    Toast.makeText(this, "Music is On", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
@@ -141,30 +148,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             ft1.commit();
 
         }
-//        else if(id == R.id.nav_settings){
-//            fragment = new SettingsFragment();
-//            FragmentTransaction ft3 = getSupportFragmentManager().beginTransaction();
-//            ft3.replace(R.id.nav_host_fragment, fragment);
-//            ft3.commit();
-//
-//
-//        }
-//        else if(id == R.id.nav_share){
-//            Intent intent = new Intent(Intent.ACTION_SEND);
-//            intent.setType("text/plain");
-//            intent.putExtra(Intent.EXTRA_SUBJECT, "Check out our app!");
-//            intent.putExtra(Intent.EXTRA_TEXT, "Our app link here");
-//            startActivity(Intent.createChooser(intent, "Share via"));
-//
-//        }
 
         else if(id == R.id.nav_sign_out){
             fragment = new LoginFragment();
             FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
             ft2.replace(R.id.nav_host_fragment, fragment);
             ft2.commit();
-
         }
+
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
 

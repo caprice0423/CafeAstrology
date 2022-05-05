@@ -41,5 +41,11 @@
         app:headerLayout="@layout/header_layout"
         app:menu="@menu/drawer_menu" />
 
+<!--    <fragment-->
+<!--            android:id="@+id/frag_detail"-->
+<!--            android:name="com.example.CafeAstrology.MatchMakingFragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
+
 </androidx.drawerlayout.widget.DrawerLayout>
 
