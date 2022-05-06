@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context=".instructionsFragment"
             android:background="@drawable/instructionsback">
-
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+            android:id="@+id/instructTitle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="This is the instructions Fragmnent"
-            android:textSize="30dp"
-            android:textColor="@color/white"/>
+            android:layout_height="wrap_content"
+            android:text="Instructions"
+            android:textSize="40dp"
+            android:paddingVertical="20dp"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"/>
 
-</FrameLayout>
+    <TextView
+            android:id="@+id/dailyWords"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome to CafeAstrology!
+We are happy to assist you on your journey of self-discovery and to help you find your match made in heaven.
+If you do not have an account already, please register.
+Once you do, you can discover your daily horoscopes and find your perfect match with our match making feature.
+Share the app with your friends and family so that they can get daily horoscopes and find their perfect match.
+Buckle up! We’re in for a thrilling ride"
+            android:textSize="25dp"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/instructTitle"/>
+
+</RelativeLayout>

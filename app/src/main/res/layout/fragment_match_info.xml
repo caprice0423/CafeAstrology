@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".MatchInfoFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+             tools:context=".MatchInfoFragment"
+                android:background="@drawable/pinkgal">
     <TextView
+            android:id="@+id/instructTitle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+            android:layout_height="wrap_content"
+            android:text="Zodiac Guide"
+            android:textSize="40dp"
+            android:paddingVertical="20dp"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"/>
 
-</FrameLayout>
+    <ImageView
+            android:src="@drawable/zonames"
+            android:layout_width="match_parent"
+            android:layout_height="420dp"
+            android:id="@+id/ident"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/instructTitle"/>
+
+    <TextView
+            android:id="@+id/notes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This is a chart of all the zodiacs with a corresponding picture and birthday. Who are you interested in?"
+            android:textSize="20dp"
+            android:paddingVertical="20dp"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/ident"/>
+
+
+</RelativeLayout>

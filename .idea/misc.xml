@@ -20,11 +20,11 @@
         <entry key="app/src/main/res/layout/fragment_date_picker.xml" value="0.20572916666666666" />
         <entry key="app/src/main/res/layout/fragment_dialog.xml" value="0.2462962962962963" />
         <entry key="app/src/main/res/layout/fragment_dialog_fragment.xml" value="0.2462962962962963" />
-        <entry key="app/src/main/res/layout/fragment_instructions.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_instructions.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.17447618934812317" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_match_info.xml" value="0.25677083333333334" />
-        <entry key="app/src/main/res/layout/fragment_match_making.xml" value="0.2659279778393352" />
+        <entry key="app/src/main/res/layout/fragment_match_info.xml" value="0.1041379581502236" />
+        <entry key="app/src/main/res/layout/fragment_match_making.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.18518518518518517" />
         <entry key="app/src/main/res/layout/fragment_select_date.xml" value="0.20277777777777778" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.16770833333333332" />

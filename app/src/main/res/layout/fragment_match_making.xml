@@ -17,19 +17,122 @@
             android:paddingVertical="20dp"
             android:textColor="@color/white"
             android:gravity="center_horizontal"/>
-
-    <Spinner
-            android:id="@+id/spinner1"
-            android:theme="@style/ThemeOverlay.AppCompat.Light"
-            android:layout_width="200dp"
+    
+    <TextView
+            android:id="@+id/notes"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:paddingVertical="7dp"
-            android:textSize="15sp"
-            android:textAlignment="center"
-            android:background="@color/white"
-            android:entries="@array/zodiac1"
+            android:text="Each of the zodiac are represented with a picture. Click on one to see your compatability. Unsure which one to pick? Click the Info button for help."
+            android:textSize="20dp"
+            android:paddingVertical="20dp"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"
             android:layout_below="@+id/MatchTitle"/>
+
+    <ImageView
+            android:src="@drawable/aries"
+            android:layout_width="96dp"
+            android:layout_height="109dp"
+            android:id="@+id/aries1"
+            android:layout_below="@+id/notes"/>
+    <ImageView
+            android:src="@drawable/taurusicon2"
+            android:layout_width="96dp"
+            android:layout_height="109dp"
+            android:id="@+id/taurus1"
+            android:layout_toRightOf="@+id/aries1"
+            android:layout_below="@+id/notes"/>
+    <ImageView
+            android:src="@drawable/gemini"
+            android:layout_width="96dp"
+            android:layout_height="109dp"
+            android:id="@+id/gemini1"
+            android:layout_toRightOf="@+id/taurus1"
+            android:layout_below="@+id/notes"/>
+    <ImageView
+            android:src="@drawable/cancer"
+            android:layout_width="96dp"
+            android:layout_height="109dp"
+            android:id="@+id/cancer1"
+            android:layout_toRightOf="@+id/gemini1"
+            android:layout_below="@+id/notes"/>
+    <ImageView
+            android:src="@drawable/leo"
+            android:layout_width="96dp"
+            android:layout_height="109dp"
+            android:id="@+id/leo1"
+            android:layout_below="@+id/aries1"/>
+    <ImageView
+            android:src="@drawable/libra"
+            android:layout_width="96dp"
+            android:layout_height="109dp"
+            android:id="@+id/libra1"
+            android:layout_toRightOf="@+id/leo1"
+            android:layout_below="@+id/taurus1"/>
+    <ImageView
+            android:src="@drawable/scorpio"
+            android:layout_width="96dp"
+            android:layout_height="109dp"
+            android:id="@+id/Scorpio1"
+            android:layout_toRightOf="@+id/libra1"
+            android:layout_below="@+id/gemini1"/>
+    <ImageView
+            android:src="@drawable/sagittarius"
+            android:layout_width="96dp"
+            android:layout_height="109dp"
+            android:id="@+id/sag1"
+            android:layout_toRightOf="@+id/Scorpio1"
+            android:layout_below="@+id/cancer1"/>
+    <ImageView
+            android:src="@drawable/virgo"
+            android:layout_width="96dp"
+            android:layout_height="109dp"
+            android:id="@+id/virgo1"
+            android:layout_below="@+id/leo1"/>
+    <ImageView
+            android:src="@drawable/capricorn"
+            android:layout_width="96dp"
+            android:layout_height="109dp"
+            android:id="@+id/capricorn1"
+            android:layout_toRightOf="@+id/virgo1"
+            android:layout_below="@+id/libra1"/>
+    <ImageView
+            android:src="@drawable/aquarius"
+            android:layout_width="96dp"
+            android:layout_height="109dp"
+            android:id="@+id/aquarius1"
+            android:layout_toRightOf="@+id/capricorn1"
+            android:layout_below="@+id/Scorpio1"/>
+    <ImageView
+            android:src="@drawable/pisces"
+            android:layout_width="96dp"
+            android:layout_height="109dp"
+            android:id="@+id/pisces1"
+            android:layout_toRightOf="@+id/aquarius1"
+            android:layout_below="@+id/sag1"/>
+
+    <TextView
+            android:id="@+id/matchResults"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text=" "
+            android:textSize="16dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:layout_below="@+id/info"/>
+
+<!--    <Spinner-->
+<!--            android:id="@+id/spinner1"-->
+<!--            android:theme="@style/ThemeOverlay.AppCompat.Light"-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:paddingVertical="7dp"-->
+<!--            android:textSize="15sp"-->
+<!--            android:textAlignment="center"-->
+<!--            android:background="@color/white"-->
+<!--            android:entries="@array/zodiac1"-->
+<!--            android:layout_below="@+id/notes"/>-->
 
     <TextView
             android:id="@+id/info"
@@ -40,31 +143,31 @@
             android:ems="7"
             android:textColor="@color/white"
             android:gravity="center_horizontal"
-            android:layout_toRightOf="@+id/spinner1"
-            android:layout_below="@+id/MatchTitle"
+
+            android:layout_below="@+id/virgo1"
             android:layout_marginTop="0dp"/>
 
-    <TextView
-            android:id="@+id/who"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="You and Aries"
-            android:textSize="20dp"
-            android:paddingVertical="20dp"
-            android:textColor="@color/white"
-            android:gravity="center_horizontal"
-            android:layout_below="@+id/spinner1"/>
+<!--    <TextView-->
+<!--            android:id="@+id/who"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="You and Aries"-->
+<!--            android:textSize="20dp"-->
+<!--            android:paddingVertical="20dp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:layout_below="@+id/spinner1"/>-->
 
-    <TextView
-            android:id="@+id/matchResults"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Loading Results"
-            android:textSize="16dp"
-            android:gravity="center_horizontal"
-            android:paddingVertical="20dp"
-            android:textColor="@color/white"
-            android:layout_below="@+id/who"/>
+<!--    <TextView-->
+<!--            android:id="@+id/matchResults"-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Loading Results"-->
+<!--            android:textSize="16dp"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:paddingVertical="20dp"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:layout_below="@+id/who"/>-->
 
     <ImageView
             android:src="@android:drawable/ic_menu_info_details"
@@ -72,7 +175,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/InfoImg"
             android:layout_toRightOf="@+id/info"
-            android:layout_below="@+id/MatchTitle"/>
+            android:layout_below="@+id/virgo1"/>
 
 
 </RelativeLayout>

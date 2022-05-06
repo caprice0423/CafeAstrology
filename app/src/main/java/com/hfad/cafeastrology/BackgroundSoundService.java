@@ -16,13 +16,13 @@ public class BackgroundSoundService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        mediaPlayer = MediaPlayer.create(this, R.raw.lizzo);
+        mediaPlayer = MediaPlayer.create(this, R.raw.thinking);
         mediaPlayer.setLooping(true); // Set looping
         mediaPlayer.setVolume(100, 100);
     }
     public int onStartCommand(Intent intent, int flags, int startId) {
         mediaPlayer.start();
-        Toast.makeText(getApplicationContext(), "Playing Bohemian Rashpody in the Background",    Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Music is Playing. Please select the settings button above if you wish to turn it off.",  Toast.LENGTH_LONG).show();
         return startId;
     }
     public void onStart(Intent intent, int startId) {

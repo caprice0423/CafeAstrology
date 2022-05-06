@@ -9,8 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -36,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Toolbar toolbar;
     Fragment fragment;
     Boolean playing = true;
+    TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,6 +133,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+        TextView usern = (TextView) this.findViewById(R.id.appCompatTextView2);
+        TextView fulln = (TextView) this.findViewById(R.id.appCompatTextView);
+        TextView birthd = (TextView) this.findViewById(R.id.appCompatTextView3);
+        TextView signN = (TextView) this.findViewById(R.id.signname);
+
+        NavigationView navigationView = (NavigationView) this.findViewById(R.id.navigationView);
+        View headerView = navigationView.getHeaderView(0);
+        ImageView myImgView = (ImageView) headerView.findViewById(R.id.appCompatImageView);
+
         Fragment fragment = null;
         if(id == R.id.nav_home){
             fragment = new MainFragment();
@@ -154,6 +163,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
             ft2.replace(R.id.nav_host_fragment, fragment);
             ft2.commit();
+
+            usern.setText(" ");
+            fulln.setText(" ");
+            birthd.setText(" ");
+            signN.setText(" ");
+            myImgView.setImageResource(R.drawable.profileicon1);
+
+
+
+
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

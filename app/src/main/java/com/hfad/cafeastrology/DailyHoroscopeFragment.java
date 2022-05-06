@@ -99,7 +99,7 @@ public class DailyHoroscopeFragment extends Fragment {
                             try {
 
                                 JSONObject json = new JSONObject(myResponse);
-                                textView1.setText(json.getJSONObject(column1).getString("Daily"));
+                                textView1.setText(column1 + ": "+ json.getJSONObject(column1).getString("Daily"));
 //                                textView1.setText(myResponse);
 
                             } catch (JSONException e) {
