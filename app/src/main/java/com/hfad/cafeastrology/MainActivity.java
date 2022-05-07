@@ -28,14 +28,11 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-
     DrawerLayout drawerLayout;
     NavController navController;
     NavigationView navigationView;
     Toolbar toolbar;
-    Fragment fragment;
     Boolean playing = true;
-    TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +60,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         View main = findViewById(R.id.mainFragment);
         PlayBackgroundSound(main);
 
-//        int id = (int)getIntent().getIntExtra("category_id", 0);
-//        MatchMakingFragment frag = (MatchMakingFragment) getSupportFragmentManager().findFragmentById(R.id.frag_detail);
-//        frag.setWorkId(id);
 
     }
 
@@ -148,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.nav_host_fragment, fragment);
             ft.commit();
+
 
         }
         else if(id == R.id.nav_information){

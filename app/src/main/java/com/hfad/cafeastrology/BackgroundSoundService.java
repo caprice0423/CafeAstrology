@@ -13,6 +13,7 @@ public class BackgroundSoundService extends Service {
     public IBinder onBind(Intent intent) {
         return null;
     }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -20,18 +21,22 @@ public class BackgroundSoundService extends Service {
         mediaPlayer.setLooping(true); // Set looping
         mediaPlayer.setVolume(100, 100);
     }
+
     public int onStartCommand(Intent intent, int flags, int startId) {
         mediaPlayer.start();
         Toast.makeText(getApplicationContext(), "Music is Playing. Please select the settings button above if you wish to turn it off.",  Toast.LENGTH_LONG).show();
         return startId;
     }
+
     public void onStart(Intent intent, int startId) {
     }
+
     @Override
     public void onDestroy() {
         mediaPlayer.stop();
         mediaPlayer.release();
     }
+
     @Override
     public void onLowMemory() {
     }

@@ -32,7 +32,7 @@ import java.io.IOException;
 
 public class MatchMakingFragment extends Fragment implements View.OnClickListener {
 
-
+    
     NavController navController = null;
     Boolean cool = false;
 
@@ -123,13 +123,13 @@ public class MatchMakingFragment extends Fragment implements View.OnClickListene
                                     try {
                                         JSONObject obj1 = new JSONObject(myResponse);
 
-
+                                        
                                         String myString = (String) myResponse;
                                         String[] item = myString.split(":");
                                         String[] item2 = item[3].split("'\'" + "u");
-
+                                        
                                         tex.setText("Aries: " + item2[0] + '"');
-
+                                        
 
                                     } catch (JSONException e) {
                                         e.printStackTrace();
@@ -175,7 +175,7 @@ public class MatchMakingFragment extends Fragment implements View.OnClickListene
 
                                         String myString = (String) myResponse;
                                         String[] item = myString.split(":");
-                                        String[] item2 = item[3].split("20");
+                                        String[] item2 = item[3].split("'\'" + "u");
 
                                         tex.setText("Taurus: " + item2[0] + '"');
 
@@ -224,7 +224,7 @@ public class MatchMakingFragment extends Fragment implements View.OnClickListene
 
                                         String myString = (String) myResponse;
                                         String[] item = myString.split(":");
-                                        String[] item2 = item[3].split("20");
+                                        String[] item2 = item[3].split("'\'" + "u");
 
                                         tex.setText("Gemini: " + item2[0] + '"');
 
@@ -273,7 +273,7 @@ public class MatchMakingFragment extends Fragment implements View.OnClickListene
 
                                         String myString = (String) myResponse;
                                         String[] item = myString.split(":");
-                                        String[] item2 = item[3].split("20");
+                                        String[] item2 = item[3].split("'\'" + "u");
 
                                         tex.setText("Cancer: " + item2[0] + '"');
 
@@ -322,7 +322,7 @@ public class MatchMakingFragment extends Fragment implements View.OnClickListene
 
                                         String myString = (String) myResponse;
                                         String[] item = myString.split(":");
-                                        String[] item2 = item[3].split("20");
+                                        String[] item2 = item[3].split("'\'" + "u");
 
                                         tex.setText("Leo:" + item2[0] + '"');
 
@@ -371,7 +371,7 @@ public class MatchMakingFragment extends Fragment implements View.OnClickListene
 
                                 String myString = (String) myResponse;
                                 String[] item = myString.split(":");
-                                String[] item2 = item[3].split("20");
+                                String[] item2 = item[3].split("'\'" + "u");
 
                                 tex.setText("Virgo" + item2[0] + '"');
 
@@ -420,7 +420,7 @@ public class MatchMakingFragment extends Fragment implements View.OnClickListene
 
                                         String myString = (String) myResponse;
                                         String[] item = myString.split(":");
-                                        String[] item2 = item[3].split("20");
+                                        String[] item2 = item[3].split("'\'" + "u");
 
                                         tex.setText("Libra" + item2[0] + '"');
 
@@ -469,7 +469,7 @@ public class MatchMakingFragment extends Fragment implements View.OnClickListene
 
                                         String myString = (String) myResponse;
                                         String[] item = myString.split(":");
-                                        String[] item2 = item[3].split("20");
+                                        String[] item2 = item[3].split("'\'" + "u");
 
                                         tex.setText("Scorpio" + item2[0] + '"');
 
@@ -518,7 +518,7 @@ public class MatchMakingFragment extends Fragment implements View.OnClickListene
 
                                         String myString = (String) myResponse;
                                         String[] item = myString.split(":");
-                                        String[] item2 = item[3].split("20");
+                                        String[] item2 = item[3].split("'\'" + "u");
 
                                         tex.setText("Sagittarius" + item2[0] + '"');
 
@@ -567,7 +567,7 @@ public class MatchMakingFragment extends Fragment implements View.OnClickListene
 
                                         String myString = (String) myResponse;
                                         String[] item = myString.split(":");
-                                        String[] item2 = item[3].split("20");
+                                        String[] item2 = item[3].split("'\'" + "u");
 
                                         tex.setText("Capricorn" + item2[0] + '"');
 
@@ -616,7 +616,7 @@ public class MatchMakingFragment extends Fragment implements View.OnClickListene
 
                                         String myString = (String) myResponse;
                                         String[] item = myString.split(":");
-                                        String[] item2 = item[3].split("20");
+                                        String[] item2 = item[3].split("'\'" + "u");
 
                                         tex.setText("Aquarius" + item2[0] + '"');
 
@@ -665,7 +665,7 @@ public class MatchMakingFragment extends Fragment implements View.OnClickListene
 
                                         String myString = (String) myResponse;
                                         String[] item = myString.split(":");
-                                        String[] item2 = item[3].split("20");
+                                        String[] item2 = item[3].split("'\'" + "u");
 
                                         tex.setText("pisces" + item2[0] + '"');
 

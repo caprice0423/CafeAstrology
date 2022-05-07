@@ -17,13 +17,13 @@
             android:paddingVertical="20dp"
             android:textColor="@color/white"
             android:gravity="center_horizontal"/>
-    
+
     <TextView
             android:id="@+id/notes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Each of the zodiac are represented with a picture. Click on one to see your compatability. Unsure which one to pick? Click the Info button for help."
-            android:textSize="20dp"
+            android:textSize="16dp"
             android:paddingVertical="20dp"
             android:textColor="@color/white"
             android:gravity="center_horizontal"
