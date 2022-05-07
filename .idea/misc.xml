@@ -21,7 +21,7 @@
         <entry key="app/src/main/res/layout/fragment_dialog.xml" value="0.2462962962962963" />
         <entry key="app/src/main/res/layout/fragment_dialog_fragment.xml" value="0.2462962962962963" />
         <entry key="app/src/main/res/layout/fragment_instructions.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.17447618934812317" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_match_info.xml" value="0.1041379581502236" />
         <entry key="app/src/main/res/layout/fragment_match_making.xml" value="0.25" />
@@ -43,7 +43,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="true" project-jdk-name="13" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

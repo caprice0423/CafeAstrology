@@ -63,7 +63,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return false;
     }
-    public static String getName() {
-        return DBNAME;
-    }
 }

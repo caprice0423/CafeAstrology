@@ -24,7 +24,6 @@ import androidx.navigation.Navigation;
 
 public class LoginFragment extends Fragment implements View.OnClickListener {
     NavController navController = null;
-
     EditText username, password;
     TextView date;
     Button btnlogin;
@@ -129,10 +128,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+
         switch (view.getId()) {
             case R.id.registerHere:
                 navController.navigate(R.id.action_loginFragment_to_registerFragment2);
                 break;
+
         }
     }
 
